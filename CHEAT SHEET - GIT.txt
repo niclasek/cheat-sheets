@@ -1,0 +1,144 @@
+GIT CHEAT SHEET
+
+--- Show changes
+git diff //Show local changes that aren't added to the index
+git diff --cached //Show local changes that has been added to the index
+
+--- Show tags and other stuff in git log
+git log --decorate 
+
+--- Show all tags
+git tag
+
+--- Show configurations
+git config --list
+
+--- Removes the file from index but not disk
+git rm --cached <filename> 
+
+--- Removes the file from index and disk
+git rm <filename> 
+
+--- Removing files from repository
+git rm --cached -r <dir>
+
+--- Deleting a local branch
+git branch -d <branch_name>
+
+--- Delete a remote branch (does no delete it locally)
+git push origin --delete <the_remote_branch>
+
+--- Create a branch from another branch on upstream
+git fetch upstream (eller git fetch --all)
+git checkout -b <newbranch> upstream/<newbranch>
+git push -u origin <newbranch>   
+
+http://stackoverflow.com/questions/4410091/github-import-upstream-branch-into-fork
+
+---  Create a branch and push it to github
+Create the branch on your local machine
+$ git branch <name_of_your_new_branch>
+
+Push the branch on github
+$ git push -u origin <name_of_your_new_branch>
+
+Switch to your new branch
+$ git checkout <name_of_your_new_branch>
+
+You can see all branches created by using
+$ git branch 
+
+More:https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+--- Create a branch and push it to github (alternative solution)
+Create the branch on your local machine and switch in this branch
+$ git checkout -b <name_of_your_new_branch>
+
+Push the branch on github (The -u option adds the branch to the config):
+$ git push -u origin <name_of_your_new_branch>
+
+
+--- Setting up a new local repository from a forked github repository https://help.github.com/articles/fork-a-repo/
+
+Create a local clone of your fork
+$ git clone <SSH clone URL for forked repositroy> eg git@github.com:niclasek/polopolysvc.git
+
+To see the current configured remote repository for your fork:
+$ git remote -v
+eg: 
+$ git remote -v
+origin	git@github.com:niclasek/polopolysvc.git (fetch)
+origin	git@github.com:niclasek/polopolysvc.git (push)
+
+Configure Git to sync your fork with the original repository
+$ git remote add upstream <SSH clone URL for original repository> eg git@github.com:stockholmuniversity/polopolysvc.git
+
+New remotes
+$ git remote -v
+origin	git@github.com:niclasek/polopolysvc.git (fetch)
+origin	git@github.com:niclasek/polopolysvc.git (push)
+upstream	git@github.com:stockholmuniversity/polopolysvc.git (fetch)
+upstream	git@github.com:stockholmuniversity/polopolysvc.git (push)
+
+Now you can do
+$ git pull upstream master
+
+
+--- Adding a colleagues branch and pull and push to that one
+http://stackoverflow.com/questions/5884784/how-to-pull-remote-branch-from-somebody-elses-repo
+git remote add <coworker-name> git://path/to/coworkers/repo.git
+git fetch <coworker-name>
+git checkout --track <coworker-name>/foo
+This will setup a local branch foo, tracking the remote branch <coworker-name>/foo. So when your coworker has made some changes, you can easily pull them:
+git checkout foo
+git pull
+
+
+--- Checking out a colleagues branch to view and test it
+git remote add coworker git@github.com:<coworkergitname>/polopoly.git
+git fetch coworker
+git checkout coworker/<branchname>
+
+
+--- Ignoring files that are alredy commited!
+http://gitready.com/intermediate/2009/02/18/temporarily-ignoring-files.html
+git update-index --assume-unchanged <file>
+git update-index --no-assume-unchanged <file>
+
+
+
+--- Create a patch from a stash
+http://stackoverflow.com/questions/2160638/how-can-i-format-patch-with-what-i-stash-away
+To stash the output in a file:
+ git stash show -p --color=never > my-patch-name.patch
+Verify patch looks good:
+git apply --stat my-patch-name.patch
+Verify no errors:
+git apply --check my-patch-name.patch
+Apply the patch
+git apply my-patch-name.patch
+
+OR
+
+http://stackoverflow.com/questions/5159185/create-a-git-patch-from-the-changes-in-the-current-working-directory
+f you haven't commited the changes, then:
+git diff > mypatch.patch
+But sometimes it happens that part of the stuff you're doing are new files that are untracked and won't be in your 'git diff' output. So, one way to do a patch is to stage everything for a new commit (but don't do the commit), and then:
+git diff --cached > mypatch.patch
+Add the 'binary' option if you want to add binary files to the patch (i.e. mp3 files):
+git diff --cached --binary > mypatch.patch
+You can later apply the patch:
+git apply mypatch.patch
+
+
+
+
+
+
+
+
+
+
+
+
+

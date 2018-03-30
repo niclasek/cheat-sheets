@@ -1,0 +1,13 @@
+ CHEAT SHEET - MONGODB
+
+Run it with: 
+mongod --config /usr/local/etc/mongod.conf
+
+To connect to the database: 
+mongo
+mongo <db-name>
+
+Commands
+show dbs
+show collections
+db.<collection-name>.find();

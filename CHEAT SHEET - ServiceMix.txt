@@ -1,0 +1,40 @@
+Starta servicemix och logga in i konsollen
+$ cd <servicemix_home>
+$ ./bin/servicemix
+
+Stoppa servicemix
+I servicemix-konsollen: shutdown
+
+list
+stop <id>
+start <id>
+eg. start 200
+headers <id>
+restart <id>
+
+service:list
+
+log:display
+log:list
+log:set 
+
+system
+system:version
+
+config:edit KarafTraining1 
+config:set-property message "Hello there"
+config:update
+
+feature:list 
+feature:repo-list
+feature:repo-add --help
+ 
+
+ActiveMQ
+<activemq_home>/bin
+activemq console - for foreground process
+activemq start - for daemon process
+
+Starta ServiceMix i bakgrunden och ansluta med ssh
+<servicemix_home>/bin/start
+ssh smx@localhost -p 8101 OR <servicemix_home>/bin/client

@@ -1,0 +1,23 @@
+CHEAT SHEET - Verktyg
+
+Apache Maven
+Maven används för att automatiskt paketera (bygga) programfilerna till en distribuerbar enhet för javaprojekt. 
+
+JBoss (numera WildFly)
+En applikationserver precis som Tomcat, Jetty, TomEE, WebLogic, WebSphere, GlassFish
+
+Jetty
+Javabaserad webserver och java servlet container
+
+JVM 
+JVM är det program som "kör" program skrivna i Java. 
+
+Tomcat
+is an open source web server and servlet container. Tomcat has the following components: Catalina (servlet container), Coyote (HTTP connector), Jaspera (JSP Engine).
+
+Jasper
+Parses JSP files and compiles them into java code as servlets. The compiled java code can be handled by Catalina. 
+
+Servlet
+A servlet is a small java program that runs within a Web Server. Servlet is a Java technology to create dynamic web pages. Servlets receive and respond to requests from Web clients, 
+usually across HTTP, the HyperText Transfer Protocol.

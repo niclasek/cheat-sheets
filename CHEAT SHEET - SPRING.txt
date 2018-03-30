@@ -1,0 +1,42 @@
+CHEAT SHEET - SPRING
+
+###What is Spring?
+it is a framework built around reducing the complexities around Enterprise Java development, and later, also providing enterprise development without EJBs.
+
+Contains best practices: Factories, Abstract factories, Singletons, Template method pattern
+
+Helps with testing and keeps focus on business
+
+Uses annotations and XML based configuraiton
+
+Everyting in Spring is POJOS!
+
+Downloaded and added to the project using Maven
+
+XML configuration
+applicationContext.xml
+
+Beans in Spring are essentially classes. They basically replace the keyword new.
+
+In spring we have Setter injection and Constructor injection.
+
+Spring uses java design patterns
+
+###Bean scope
+5 scopes
+Valid in any configuraiton
+- Singleton
+- Prototype
+Valid only in web-aware Spring projects
+- Request
+- Session
+- Global
+
+#Singleton
+Means only one instance per class
+Default Bean scope
+Means only one instance per Spring container
+
+#Prototype
+Guarantess a unique instance per request
+

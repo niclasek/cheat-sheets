@@ -1,0 +1,19 @@
+Rake test cheat sheet!
+
+grundläggande
+rake test -- runs all unit, functional, and integration tests
+rake test:units -- runs all unit tests
+rake test:functionals -- runs all functional tests
+rake test:integration -- runs all integration tests
+
+Köra enstaka testfil:
+från IntelliJ
+Högerklicka på en test fil och välj Run -- lätt som en plätt
+
+från terminal
+rake test:functionals TEST=test/functional/login_controller_test.rb 
+
+Köra enstaka testmetod:
+ruby -I"lib:test" test/functional/admin/specialization_controller_test.rb -n test_that_revoke_requires_post_request
+
+ruby -I"lib:test" test/functional/admin/specialization_controller_test.rb -n test_should_render_list_on_successfull_delete_of_a_specialization

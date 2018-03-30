@@ -1,0 +1,18 @@
+CHEAT SHEET - TOMCAT
+https://www.reddit.com/r/javahelp/comments/6zkrqe/relation_between_web_container_and_jvm/
+
+Tomcat is a java application and it runs inside a JVM. 
+
+Web applications are deployed into tomcat but the code of the web application runs inside the same JVM being used to run tomcat.
+
+Tomcat handles all the stuff specified by 5 of the ~28 specs associated with Java EE. The 5 specs it implements are Servlet, JSP, EL, WebSocket, and JASPIC
+- Servlet -- handles HTTP requests/responses
+- JSP -- a templating engine (more or less) that handles producing web pages
+- EL -- from tutorial: "provides an important mechanism for enabling the presentation layer (web pages) to communicate with the application logic (managed beans)."
+- WebSocket -- lets you make long-lived connections from a browser to the server (in this case tomcat)
+- JASPIC - Java Authentication Service Provider Interface for Containers
+
+
+If you want something that implements all 28 specs you need to use GlassFish, JBoss, weblogic, websphere, TomEE, etc. These are full application servers which means they implement every spec associated with Java EE
+
+Implementations of most of the other 28 specs can be included as dependencies in your application and still ran in Tomcat (e.g. Jersey, which lets you easily create REST apis). With a full app server you don't have to go hunting down all the Java EE dependencies, they are all available.

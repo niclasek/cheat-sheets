@@ -1,0 +1,18 @@
+CHEAT SHEET - Hämta hem en ny db-dump från unix-server
+
+ssh <uid>@<server-name>
+
+kolla vart filen du vill kopiera ligger.
+sen:
+scp <uid>@<server-name>:<server-file-path> <local-file-path>
+ex:
+scp nek@myserver.it.se:/local/backup/mysql/database-dump.sql .
+
+Dumpa och importera:
+
+$ mysqldump -u root <database-name> > <file-name.sql>
+$ mysqldump -u root mydatabase > mydatabase-dump.sql
+
+mysql> use mydatabse;
+mysql> source mydatabase-dump.sql;
+

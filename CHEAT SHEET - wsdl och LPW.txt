@@ -1,0 +1,8 @@
+CHEAT SHEET - WSDL
+
+Fantastisk video som förklarar wsdl: https://www.youtube.com/watch?v=E76xW1JTVXY
+
+Fantastisk video som förklarar soap och web services: https://www.youtube.com/watch?v=mKjvKPlb1rA
+
+
+

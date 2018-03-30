@@ -1,0 +1,16 @@
+CHEAT SHEET CHECKSUMS
+
+Help:
+shasum -h
+
+shasum jdk-8u72-macosx-x64.dmg
+cda0265ad16ed2c767e417f2054ea65e668d2aa7  jdk-8u72-macosx-x64.dmg
+
+SHA-512/256
+shasum -a 512256 jdk-8u72-macosx-x64.dmg
+ac9b6805037c21ee201cf1989292cc30b4eaaec857e3912cc1c4db3bcc43bcd5  jdk-8u72-macosx-x64.dmg
+
+SHA256
+shasum -a 256 jdk-8u72-macosx-x64.dmg
+ca8b92cde2e4fefc7a9b34853060e0e211529a4608a0981f20dc6d806ee57558  jdk-8u72-macosx-x64.dmg
+ca8b92cde2e4fefc7a9b34853060e0e211529a4608a0981f20dc6d806ee57558 

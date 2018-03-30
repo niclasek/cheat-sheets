@@ -1,0 +1,38 @@
+BASH
+
+"cd -" - Let you change directory to your previous location in the file system. It’s and easy way switch back and forth between two directories. 
+!! - Repeat last command
+!$ - last word of last command
+$? - last exit value
+^x^y - repeat last command substituting x for y
+{a..k} is expanded a b c d e f g h i j k
+{a,b,c} is expanded a b c
+file{0,1}{0..2} is expanded file00 file01 file02 file10 file11 file12
+&& and || to join commands
+
+quoting example
+h=" foo bah" 
+echo "$h" foo bah 
+echo \$h$hecho $hfoo bahecho ’$h’
+$h 
+echo X$h
+X foo bahecho $hX
+(blank)echo ${h}X
+foo bahX
+
+fantastiska kommandon:
+cd	tar dig hem
+cd -	tar dig till föregående katalog
+ctrl u 	ta bort allt till vänster
+ctrl k 	ta bort allt till höger
+ctrl r	bakåt sök
+
+fantastiska alias:
+alias ls="ls -lahG"
+alias s="git status"
+alias gh="open https://github.com/"
+alias pu="cd && clear"
+
+git prompt - https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+git completion - https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+bash completion - https://bash-completion.alioth.debian.org/ - i homebrew

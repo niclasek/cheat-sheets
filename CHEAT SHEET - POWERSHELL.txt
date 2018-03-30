@@ -1,0 +1,78 @@
+CHEAT SHEET - POWERSHELL
+
+##Environment Variables
+Get-ChildItem Env:
+Get-Item Env:Path
+echo $Env:JAVA_HOME
+
+##List all aliases:
+get-alias
+<alias> - <powershell command>
+ls -> Get-ChildItem
+cp -> Copy-Item
+md -> mkdir
+rm -> Remove-Item
+
+##Set a new alias: (in window memory)
+set-alias <alias> <cmdlet>
+export-alias <alias name or *> c:\ps\my-alias.csv
+import-alias c:\ps\my-alias.csv
+
+##Get a list of all available commands
+get-command
+get-command -verb get
+get-command -noun service
+
+##Get help
+get-help <cmdlet>, e.g., get-help get-command
+get-help <cmdlet> -examples|-detailed|-full
+<cmdlet> -?
+
+##Pipelining - combine cmdlets
+get-childitem | where-object { $_.length -gt 100kb }
+get-childitem | where-object { $_.length -gt 100kb } | sort-object length
+
+get-childitem | 
+where-object { $_.length -gt 100kb } | 
+sort-object length |
+format-table -Property name, length -autosize
+
+get-childitem | select-object name, length
+
+## List default providers
+get-psprovider
+## List drives
+get-psdrive
+## Move to a drive
+cd <drive-name>: e.g., cd env:
+
+## Variables
+$a = "Hello world"
+$a - displays the variable
+$a.Length
+$a.GetType()
+
+##Grep in Powershell
+select-string -pattern <string>
+alias sls
+exempel:
+choco list | sls -pattern soap
+
+## Creating a new profile
+To create a new profile for current user all hosts:
+PS C:\> new-item $PROFILE.CurrentUserAllHosts -ItemType file -Force
+Creates file: C:\Users\ek\Documents\WindowsPowerShell\profile.ps1
+
+Change the execution policy
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+To open the profile for editing, use the ise alias as shown here.
+ise $PROFILE.CurrentUserAllHosts
+
+When you are finished editing the profile, save it, close the Windows PowerShell console, reopen the Windows PowerShell console, and test that your changes work properly.
+
+## Find in file
+Find a string in a specific type of file in a specific directory
+ls <path> -depth <int> | sls -Pattern <string>
+ls . -depth 2 | sls -Pattern "java"
+

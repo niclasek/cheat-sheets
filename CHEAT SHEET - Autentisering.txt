@@ -1,0 +1,19 @@
+SPOCP
+
+Kerberos
+Är ett protokoll
+Kerberos är ett system för autentisering inom datorteknik, för att användare kan visa vem de är för datorer och tjänster, samtidigt som de får verifierat att tjänsten verkligen är den de tror sig använda.
+
+Användaren identifierar sig hos kerberosservern och får då en ticket granting ticket (tgt). Användaren kan därefter få ut tickets för olika tjänster och servrar från kerberosservern. Med ticketen kan serverna verifiera att användaren är den den utger sig för att vara och användaren kan också verifiera att tjänsten är den den utger sig för att vara.
+
+Fördelen med detta är att användaren inte behöver skicka sitt lösenord till alla tjänster och servrar där den vill logga in utan skickar istället en ticket som är krypterad och låses upp med en nyckel som ligger på servern.   
+
+Shibboleth
+Shibbolet är ett ord eller en fras som avslöjar var talaren kommer ifrån. 
+
+
+IdP - Identity Provider
+SP - Service Provider
+SS - Service Server
+AS - Authentication Server
+WAYF - Where are you from

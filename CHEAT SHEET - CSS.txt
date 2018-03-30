@@ -1,0 +1,20 @@
+Notes on CSS (from the course on http://learnlayout.com/)
+
+Elements:
+Elements are for example <div>, <span>, <p>, <form>, <header>, <footer>, <section> and many more.
+
+Tags:
+This is an opening tag <div>
+and this is a closing tag </div>
+
+Attributes:
+E.g. id, class, src, href
+
+Display property:
+display is CSS's most important property for controlling layout. Every element has a default display value depending on what type of element it is. The default for most elements is usually block or inline. This default value can always be overwritten. 
+
+Block: 
+div is the standard block-level element. A block-level element starts on a new line and stretches out to the left and right as far as it can. Other common block-level elements are p and form, and new in HTML5 are header, footer, section, and more.
+
+Inline:
+span is the standard inline element. An inline element can wrap some text inside a paragraph <span> like this </span> without disrupting the flow of that paragraph. The a element is the most common inline element, since you use them for links.

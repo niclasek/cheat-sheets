@@ -1,0 +1,12 @@
+CHEAT SHEET - NPM
+
+Show version
+npm --version
+
+Update
+npm install npm -g
+
+Att köra en app med Node.js
+Gå till mappen för appen
+kör: npm start
+

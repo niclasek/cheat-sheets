@@ -1,0 +1,23 @@
+CHEAT SHEET - OBJECT-ORIENTED DESIGN
+
+Your code should be written so that you can return to it on month later and understand easily what it does.
+
+Classes should be independent from each other.
+
+Everything in a class should be connected to each other, i.e., do not create classes that does a little bit of everything.
+
+Class mehtods should have the names of verbs, doSomething(withThis)
+
+Main classes should be defined from business logic, i.e., cars, user, table and not from entities found on the app, i.e., database, server and index. The classes that handles the it parts should be buried down deep in the application. 
+
+WHAT IS AN OBJECT?
+Objects are defined by what they DO and not what they contain.
+
+For you an object is a black box, you don't know how it works, but you can ask it to do things for you, and you don't know how the object processes that request.
+
+Interacting with objects should be asking for help, not for information. The object that has the most information does the work.
+
+SOLID principles - Written by Bob Martin
+By following these principles your code is going to be better structured
+S - Single responsability: An object should be responsible for doing only one thing
+

@@ -1,0 +1,42 @@
+CHEAT SHEET - RVM, RAILS, RUBY
+
+
+RVM
+rvm usage
+rvm list
+rvm remove <version number> e.g. rvm remove 1.9.3
+rvm install <version number> e.g. rvm install 1.9.3
+rvm use <version number> e.g. rvm use 1.9.3
+rvm --default use <version number>
+
+GEM
+gem list
+gem environment
+
+BUNDLE
+bundle install -- installs all the gems in the gemfile
+bundle show <gemname> to see where a bundled gem is installed
+
+
+
+
+
+
+Start Rails:
+rails server (from the application home directory)
+
+Create controller:
+rails generate controller Say hello goodbye
+Executed from project home. 
+Say is the controller name
+hello and goodbye is the controller actions
+
+
+
+
+Database
+create database gameoflife charset utf8 collate utf8_swedish_ci;
+grant all on gameoflife.* to 'gol'@'localhost' identified by 'gol';
+drop database gameoflife;
+drop user gol cascade;
+use gol;

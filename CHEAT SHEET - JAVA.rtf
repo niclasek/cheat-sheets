@@ -1,0 +1,330 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 Avenir-Book;\f1\fnil\fcharset0 Consolas;}
+{\colortbl;\red255\green255\blue255;\red191\green191\blue191;}
+{\*\expandedcolortbl;;\csgray\c79525;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21140\viewh14580\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 JAVA - CHEAT SHEET\
+\
+\
+
+\b\fs34 ----- Arrays ------
+\b0\fs26 \
+When you want to group data the most basic solution is to use an Array. \
+Limitations of using an Array: \
+- They are statically sized. \
+- Requires explicit position management. Higher-level stuff like sorting requires much more from the programer.\
+- Little more than a bunch of values\
+\ul Collections provide more powerful options!\ulnone \
+\
+examples:\
+int[] myIntArray = new int[3];\
+int[] myIntArray = \{1,2,3\};\
+int[] myIntArray = new int[]\{1,2,3\};\
+\
+String[] myStringArray = new String[3];\
+String[] myStringArray = \{"a","b","c"\};\
+String[] myStringArray = new String[]\{"a","b","c"\};\
+\
+---------------------------------------------/Arrays -------------------------------------------------\
+\
+
+\b\fs34 ----- Collections Framework------\
+
+\b0\fs26 https://docs.oracle.com/javase/7/docs/technotes/guides/collections/index.html
+\b \
+
+\b0 Each collection type has its own features. The collection interface however provides common methods and is implemented by most collection types. The collection inteface extends the iterable interface.\
+
+\b \
+Common Collection Interfaces\
+
+\b0 The different interfaces defines the particular behavior that distinguishe the collections from each other
+\b \
+
+\b0 Interface Collection<E> -- Superinterface Iterable<E> -- Basic collection operations
+\b \
+
+\b0 Interface List<E> -- Superinterfaces Collection<E>, Iterable<E> -- Collection that maintains a particular order
+\b \
+
+\b0 Interface Queue<E> -- Superinterfaces Collection<E>, Iterable<E> -- Collection with the concept of order and specific "head" elemenst\
+Interface Set<E> -- Superinterfaces Collection<E>, Iterable<E> -- Collection that contains no duplicate values\
+Interface SortedSet<E> -- Superinterfaces Collection<E>, Iterable<E>, Set<E> -- A set whose members are sorted\
+\
+
+\b Common Collection Classes\
+
+\b0 Every collection class implements one or more collection interface\
+Class ArrayList<E>\
+- Implements Iterable<E>, \ul Collection<E>\ulnone , \ul List<E>\ulnone , Serializable, Cloneable, and RandomAccess\
+- A List backed by a resizable array. \
+- Efficient random access but inefficient random inserts*\
+Class LinkedList<E> -- Implements Iterable<E>, \ul Collection<E>\ulnone , \ul List<E>\ulnone , \ul Deque<E>\ulnone , \ul Queue<E>\ulnone , Serializable, Cloneable\
+- A list and Queue backed by a double-linked list\
+- Efficient random insert but inefficient random access* \
+Class HashSet<E> -- Implements Iterable<E>, \ul Collection<E>\ulnone , \ul Set<E>\ulnone , Serializable, Cloneable\
+- A Set implemented as a hash table\
+- Makes no guarantees as to the iteration order of the set\
+- Efficient general purpose usage at any size\
+Class TreeSet<E> -- Implements Iterable<E>, \ul Collection<E>\ulnone , \ul NavigableSet<E>\ulnone , \ul Set<E>\ulnone , \ul SortedSet<E>\ulnone , Serializable, Cloneable \
+- A SortedSet implemented as a balanced binary tree\
+- Members accessible in order but less efficient to modify and search than a HashSet\
+\
+\
+* random access = getting, e.g., the 30st, 150th or 200th element\
+* random insert = inserting an element between, e.g., the 200th and 201st element\
+
+\b \
+Sorted Collections\
+
+\b0 Some types rely on sorting. There are two ways to specify sort behaviour\
+Comparable interface: Implemented by the type to be sorted. Note that the implementation of sort should be consistent with equals\
+Comparator interface: Implemented by the type that perform sort. Specifies sort behavior for another type. The comparator is passed to the sorted collection when it is created. 
+\b \
+\
+Common Collection Methods\
+
+\b0 size, clear, isEmpty, add, addAll
+\b \
+
+\b0 contains, containsAll, remove, removeAll, retainAll //Be aware on how the objects equal methods are implemented when using these methods\
+\
+
+\b Java 8 Collection Methods\
+
+\b0 forEach and removeIf with lambda expression. Se example below in the lambda section. I don't understand if forEach and removeIf was introduced in Java 8 or no.
+\b \
+\
+Collection and Arrays\
+
+\b0 The collection interface can return an array: \
+- toArray() - returns an array of the type Object\
+- toArray(T[] array) - returns an array of the type T\
+Array content can be retrived as a collection:\
+- asList()\
+\
+
+\b -- Map --\
+
+\b0 Map is part of the collection framework but doesn't implement the collection interface\
+Maps keys to values. \
+A map cannot contain duplicate keys; each key can map to at most one value.\
+Values can be duplicated and null
+\b \
+\
+Interfaces and classes\
+
+\b0 Interface Map<K,V> \
+- Basic map operations\
+Interface SortedMap<K,V> -- Superinterface \ul Map<K,V>\ulnone  \
+- Map whose keys are sorted\
+Class HashMap<K,V> -- Implements \ul Map<K,V>\ulnone , Serializable, Cloneable \
+- Efficient general purpose Map implementation\
+- Makes no guarantees as to the iteration order of the map, neither will it remain constant over time.\
+Class TreeMap<K,V> -- Implements \ul Map<K,V>\ulnone , \ul NavigableMap<K,V>\ulnone , \ul SortedMap<K,V>\ulnone , Serializable, Cloneable\
+- SortedMap implemented as a self-balancing tree. Supports Comparable and Comparator sorting. \
+Class HashTable<K,V> -- Implements \ul Map<K,V>\ulnone , Serializable, Cloneable \
+- Hashtable is synchronized. If a thread-safe implementation is not needed, it is recommended to use HashMap in place of Hashtable. \
+- If a thread-safe highly-concurrent implementation is desired, then it is recommended to use ConcurrentHashMap in place of Hashtable.\
+\
+
+\b Common Map Methods\
+
+\b0 put - Add key and value\
+putIfAbsent - Add key and value if key not contained or value null\
+get - Return value for key, if key not found return null\
+getOrDefault - Return value for key, if key not found return the provided default value\
+values - Return a Collection of the contained values\
+keySet - Return a Set of the contained keys\
+forEach - Perform action for each entry\
+replaceAll - Perform action for each entry replacing the each Key's value with the action's result\
+\
+--/Map--\
+
+\b \
+
+\b0 ---------------------------------------------/Collections Framework -------------------------------------------------
+\b \
+\
+
+\fs34 ----- Lambda Expressions -----
+\fs26 \
+
+\b0 - Introduced in Java 8\
+- Simplifies passing code as arguments\
+\
+
+\b An example
+\b0  of a lambda expression with a collection and forEach:\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1 \cf0 //This code will iterate throw the list and for each object in the list it will execute the code after the arrow (->)\
+list.forEach(o -> System.out.println(o.getLabel()))\
+\pard\pardeftab720\partightenfactor0
+\cf0 list.removeIf(m -> m.getValue().equals("abc"));\
+\
+
+\f0\b An example
+\b0  of a 
+\b bi-consumer
+\b0  lambda expression
+\f1 \
+map.forEach( (k,v) -> System.out.println(k + " | " + v);\
+\
+
+\f0\b An example
+\b0  of a 
+\b bi-function
+\b0  lambda expression. \
+
+\f1 //Accept two parameters but also returns back a value. The value returned will be the new value in the map.
+\f0 \
+
+\f1 map.replaceAll( (k,v) -> v.toUpperCase());\
+
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ---------------------------------/Lambda Expressions-------------------------------------------------------------\
+
+\b  \
+Array
+\b0 \
+Most basic solution is to use an Array. \
+Limitations of using an Array: \
+- They are statically sized. \
+- Requires explicit position management. Higher-level stuff like sorting requires much more from the programer.\
+- Little more than a bunch of values\
+\
+
+\b Mutable vs immutable
+\b0 \
+An immutable object cannot be changed once it is created, e.g., a String. \
+A mutable object can be changed after it has been created, e.g., an ArrayList\
+
+\b \
+Access Levels\
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1700\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth1320\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth1380\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth1460\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Modifier\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Class\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Package\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Subclass\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 World\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1700\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth1320\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth1380\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth1460\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 public\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1700\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth1320\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth1380\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth1460\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 protected\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1700\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth1320\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth1380\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth1460\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 no modifier\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1700\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1080\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth1320\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth1380\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth1460\clftsWidth3 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadl100 \clpadr100 \gaph\cellx8640
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 private\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Y\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell 
+\pard\intbl\itap1\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 N\cell \lastrow\row
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+Java 7 vs 8 vs 9\
+
+\b0 7\
+8 - Lambda expressions, default methods in interfaces\
+9\
+\
+
+\b\fs34 --- JavaEE - What is part of EE and not SE ---\
+
+\b0\fs26 \
+## JMS - Java Message Service\
+It is a messaging standard that allows application components based on the Java Enterprise Edition (Java EE) to create, send, receive, and read messages.  It allows the communication between different components of a distributed application to be loosely coupled, reliable, and asynchronous.\
+\
+To use JMS, one must have a JMS provider that can manage the sessions, queues and topics. Examples of JMS providers: Apache ActiveMQ, RabbitMQ, JBoss HornetQ\
+\
+## EJB - Enterprise JavaBean\
+\
+## Servlets\
+\
+## JSP\
+
+\fs28 --- /JavaEE - What is part of EE and not SE ---
+\b\fs34 \
+
+\b0\fs26 \
+\
+
+\b TODO
+\b0 \
+When was anonymous functions introduced in Java?\
+What is functional programming?\
+How does closures work?\
+\
+\
+}

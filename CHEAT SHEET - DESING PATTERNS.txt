@@ -1,0 +1,35 @@
+CHEAT SHEET - DESIGN PATTERNS
+
+Singleton pattern:
+One instance only
+Examples: Java API Runtime environment, Spring beans, Graphic managers, Facade objects
+
+Builder pattern
+Creating an object with a lot of parameters.
+Can make it immutable once constructed. 
+Examples Java API StringBuilder, DocumentBuilder, Locale.Builder
+Used instead of a JavaBean and Telescope constructors
+Example: lunchOrder Builder
+
+Prototype pattern
+- Is used when an object is expensive to create, but we can get what we need by copying the member variables.
+- The prototype typically implements the clone/cloneable method and interface. 
+- Although a copy, each instance is unique.
+- The implementor decides to do a deep or shallow copy. (Shallow copy copies the immediate properties, whereas a deep copy will any of its objects references as well.)
+- Used when you need to create a lot of instances of an object as it is more efficent than using the keyword New.
+- Deep copy requires extra implementation by the programmer.
+
+Factory pattern
+Doesn't expose instantiation logic - the client knows very little about the object created.
+Defers creation logic to subclasses
+The client knows about a common interface that the factory exposes
+Specified by architecture, implemented by user
+Examples in the Java API:
+- Calendar
+- ResourceBundle
+- NumberFormat
+
+
+Abstract Factory
+A facotory of factories, i.e., adds another layer on top of the factory.
+For example an abstract CreditCardFactory that returns either a AmexFactory or a VisaFactory. 

@@ -1,0 +1,52 @@
+CHEAT SHEET - Find files and strings
+http://www.cnet.com/news/how-to-find-files-via-the-os-x-terminal/
+
+---- locate - locates filenames and directories
+Note: This command search only system files. Meaning that user directories will not be included.
+Examples:
+locate spotify //will output all files that matches *spotify*
+locate caskroom //will output all files that have caskroom in its filepath.
+
+---- find - finds files and directories based on the name
+Information: man find
+Examples:
+find /Users -name "CHEAT*" 
+// Searches in the folder /Users and all of it subfolders for a file with 
+a file name that starts with CHEAT* (* as wildcard). The output will list all
+the matching files and their file path. Using -iname will make the match case insensitive.
+
+find . -type d -name "foo*"
+// Searches in the current directory for a directory with the name foo*
+another option is f for regular file and another is l for symbolic link
+
+find + xargs - Find files that contains a string
+find . -type f -name "*.xml" | xargs grep foo -n
+find <in directory . and all its subfolders> <the type file> <with file name *.xml (* as wildcard)> | The file contains the string foo <-n will add the line number in the output>
+//The find feeds the input of args with a long list of file names. xargs then splits this list into sublists and 
+calls grep foo for every sublist. Outputs the file name with its path and the row in which the word is found and the row number. Grep foo will match any string that contains the three letters, e.g., foobar, barfoobaz, foo. It wil NOT match FOO. 
+
+The above will not work if there are spaces in the directory names or in the file names. Instead you will need to use something like this:
+find . -maxdepth 1 -type f -name "*.html" -print0 | xargs -0 grep border-box
+-0 Change xargs to expect NUL (``\0'') characters as separators, instead of spaces and newlines. This is expected to be used in concert with the -print0 function in find(1).
+
+
+---- grep - grep [options] PATTERN [FILE...] - Find files that contains a string
+grep "foobar" . -R -n
+-R = recursive search, -n = Output the line number
+//finds the files that contains the string foobar in the directory . and its sub directories. Output the file name
+and the line number.
+grep foo *
+//lilst the lines in all the files in current folder that contains the string foo.
+grep -l "foo bar" /Users/niclas/* 
+//Quotes can be used for more than one word. Paths can be specified with wildcards. The "-l" option limit the output to list only the filename and only list it ones. Without the "-R" the search is done only in that directory.
+
+---- spotlight
+
+---- finder
+
+---- mdfind - uses the same search as spotlight
+
+
+
+
+

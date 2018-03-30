@@ -1,0 +1,12 @@
+CHEAT SHEET - Rake Migrations
+
+rake db:migrate
+rake db:migrate:status --- does a dry run and prints status
+
+rake db:rollback
+rake db:rollback STEP=3
+
+rake db:migrate:redo --- rollsback and then migrates again
+rake db:migrate:redo STEP=3
+
+for more info see: http://edgeguides.rubyonrails.org/active_record_migrations.html

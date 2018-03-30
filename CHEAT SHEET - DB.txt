@@ -1,0 +1,34 @@
+CHEAT SHEET Database
+
+---- mysql ----
+starta: 
+$mysqld & 
+$mysql.server start
+logga in: mysql -u root
+
+We've installed your MySQL database without a root password. To secure it run:
+    $mysql_secure_installation
+
+list databases: show databases;
+change database: use <database name>;
+display datadir: SHOW VARIABLES WHERE Variable_name LIKE '%datadir%';
+list users: SELECT User FROM mysql.user;
+
+---- MongoDB ----
+To start:
+To have launchd start mongodb now and restart at login:
+    $brew services start mongodb
+Or, if you don't want/need a background service you can just run:
+    $mongod --config /usr/local/etc/mongod.conf
+
+mongod - the server 
+mongo - runs the command line
+
+list databases: show dbs
+start mongo using a database: mongo <db_name>
+list collections: show collections
+list elements in a collection: db.<collection_name>.find()[.pretty()]
+remove all elements in a collection: db.<collection_name>.remove({})
+
+
+

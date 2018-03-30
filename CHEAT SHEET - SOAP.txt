@@ -1,0 +1,9 @@
+CHEAT SHEET - SOAP
+
+WSDL
+porttype
+The portType of the WSDL is comparable to an interface in Java. It defines the type or types of services that are available. ?An operation in the portType operation corresponds to an en endpoint method? 
+
+messages
+corresponds to the operation in the portType
+
