@@ -1,0 +1,18 @@
+CHEAT SHEET - WebStorm
+
+Debugging an Angular application using Webstorm
+Mode 1:
+1. Launch the application in debug or run mode
+2. Create a new run/debug configuration
+	a. Create a new JavaScript Debug configuration
+	b. Insert the URL in which your application is running
+	c. It seems that it only works with Chrome (It opens Chrome although Firefox is selected)
+3. Launch the JavaScript Debug configuration in debug mode.
+4. You can now set break points in WebStorm and inspect the code from there.
+Notes: no Chrome plugin is needed
+
+Mode 2:
+1. Install the JetBrains IDE Support extension
+2. Launch the application in debug or run mode
+3. Right click the JB-icon in the browser top right corner and select "Inspect in WebStorm"
+4. You can now set break points in WebStorm and inspect the code from there.

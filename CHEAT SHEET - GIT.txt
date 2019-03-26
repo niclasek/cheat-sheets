@@ -1,5 +1,20 @@
 GIT CHEAT SHEET
 
+--- Create a new repository on the command line
+Create a repo in the GitHub UI first
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/c0ldlimit/vimcolors.git
+git push -u origin master
+ 
+--- Push an existing repository from the command line
+ 
+git remote add origin https://github.com/c0ldlimit/vimcolors.git
+git push -u origin master
+
+
 --- Show changes
 git diff //Show local changes that aren't added to the index
 git diff --cached //Show local changes that has been added to the index
@@ -121,7 +136,7 @@ git apply my-patch-name.patch
 OR
 
 http://stackoverflow.com/questions/5159185/create-a-git-patch-from-the-changes-in-the-current-working-directory
-f you haven't commited the changes, then:
+if you haven't commited the changes, then:
 git diff > mypatch.patch
 But sometimes it happens that part of the stuff you're doing are new files that are untracked and won't be in your 'git diff' output. So, one way to do a patch is to stage everything for a new commit (but don't do the commit), and then:
 git diff --cached > mypatch.patch

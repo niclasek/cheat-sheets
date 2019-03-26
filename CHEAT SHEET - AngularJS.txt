@@ -1,0 +1,20 @@
+CHEAT-SHEET - ANGULARJS
+
+Directives:
+At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) 
+to attach a specified behavior to that DOM element (e.g. via event listeners), or even to transform the DOM element and its children.
+<html ng-app> - The ng-app attribute represents an AngularJS directive, named ngApp
+(AngularJS uses kebab-case for its custom attributes and camelCase for the corresponding directives which implement them)
+
+ngRepeat - a directive that repeats the tag for each object in a list. For example: <li ng-repeat="phone in phones">
+
+ngController - a directive that attaches a controller to a tag. For example: <body ng-controller="PhoneListController">
+At this point:
+- PhoneListController is in charge of the DOM sub-tree under (and including) the <body> element.
+- In the DOM we can access the objects (models) in the controller. 
+
+
+$scope vs $rootScope
+Scopes allows for the template, model and controller to work together
+Root scope is the scope of the app
+Scope is the scope in a controller
